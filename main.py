@@ -10,6 +10,10 @@ from constants import *
 
 def scrape_and_index_lessons(lesson_uuids, schema):
     # type: (list[str], Schema) -> None
+    """
+    Scrapes lesson data from the Boot.Dev API and indexes it using the provided
+    schema.
+    """
 
     if not index.exists_in('indexdir'):
         ix = index.create_in('indexdir', schema)
@@ -22,7 +26,7 @@ def scrape_and_index_lessons(lesson_uuids, schema):
     tick = time.time()
     for i, lesson_uuid in enumerate(lesson_uuids, start=1):
         api_url = f'{BOOTDEV_API_LESSONS}/{lesson_uuid}'
-        content = utils.get_lesson_and_content(api_url=api_url)
+        _, content = utils.get_lesson_and_content(api_url=api_url)
         if not content:
             print('no content:', api_url, end='\n\n')
             tick = time.time()
@@ -133,4 +137,5 @@ if __name__ == '__main__':
         lesson_uuids = utils.get_all_lesson_uuids()
         scrape_and_index_lessons(lesson_uuids=lesson_uuids, schema=schema)
 
-    index_search(args.search)
+    if args.search:
+        index_search(args.search)
