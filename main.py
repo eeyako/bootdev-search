@@ -88,7 +88,8 @@ def index_search(query):
 
             # Link
             print(text.UNDERLINE, text.BLUE, sep='', end='')
-            print(f'{BOOTDEV_LESSONS}/{hit["uuid"]}#:~:text={query}')
+            hl_query = '&text='.join(query.split(' '))
+            print(f'{BOOTDEV_LESSONS}/{hit["uuid"]}#:~:text={hl_query}')
             print(text.DEFAULT, end='')
 
             # highlight
