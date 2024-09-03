@@ -1,5 +1,5 @@
 # Boot.Dev search
-#### A *(not official)* CLI [Boot.Dev](www.boot.dev) lessons search engine
+#### A *(not official)* CLI [Boot.Dev](https://www.boot.dev/) lessons search engine
 
 ### Installation
 1. Clone repo
