@@ -10,7 +10,11 @@
     ```
     cd bootdev-search/ && python3 -m venv venv
     ```
-3. Install requirements
+3. Activate virtual environment
+    ```
+    source venv/bin/activate
+    ```
+4. Install requirements
     ```
     pip install -r requirements.txt
     ```
