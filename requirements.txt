@@ -1,0 +1,4 @@
+requests==2.32.3
+beautifulsoup4==4.12.3
+Markdown==3.7
+Whoosh==2.7.4
