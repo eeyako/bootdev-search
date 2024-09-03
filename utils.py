@@ -1,7 +1,7 @@
 import markdown
 from bs4 import BeautifulSoup
 import requests
-import constants as k
+from constants import *
 from whoosh import highlight
 
 
@@ -21,7 +21,7 @@ def get_all_lesson_uuids():
     Boot.Dev API
     """
     lesson_uuids = set()
-    res = requests.get(k.BOOTDEV_API_COURSES)
+    res = requests.get(BOOTDEV_API_COURSES)
     courses = res.json()
     for course in courses:
         # Skip courses that haven't been published yet
@@ -51,16 +51,16 @@ def get_lesson_and_content(api_url):
 
     # Get lesson data
     data_ls = []
-    for k in lesson.keys():
-        if not k.startswith('LessonData'):
+    for data_key in lesson.keys():
+        if not data_key.startswith('LessonData'):
             continue
-        data_ls.append(lesson.get(k, {}))
+        data_ls.append(lesson.get(data_key, {}))
     data_ls = filter(lambda x: x, data_ls)
 
     # Get content from lesson data
     content = ''
-    for data in data_ls:
-        content += f"{data.get('Readme', '')}\n"
+    for data_key in data_ls:
+        content += f"{data_key.get('Readme', '')}\n"
 
     return lesson, markdown_to_plaintext(content)
 
@@ -73,4 +73,4 @@ class RedFormatter(highlight.Formatter):
 
     def format_token(self, text, token, replace=False):
         token_text = highlight.get_text(text, token, replace)
-        return f'{k.text.RED}{k.text.BOLD}{token_text}{k.text.DEFAULT}'
+        return f'{text.RED}{text.BOLD}{token_text}{text.DEFAULT}'
