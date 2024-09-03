@@ -71,6 +71,6 @@ class RedFormatter(highlight.Formatter):
     """
     between = "... \n"
 
-    def format_token(self, text, token, replace=False):
-        token_text = highlight.get_text(text, token, replace)
+    def format_token(self, txt, token, replace=False):
+        token_text = highlight.get_text(txt, token, replace)
         return f'{text.RED}{text.BOLD}{token_text}{text.DEFAULT}'
