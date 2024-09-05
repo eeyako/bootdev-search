@@ -41,7 +41,11 @@ def scrape_and_index_lessons(lesson_uuids, schema):
         m = eta // 60
         s = (eta / 60 - m) * 60
         print(text.ERASE, end='')
-        print(f'Indexing: {done:.1f} % (ETA: {m:.0f} min {s:.0f} sec)', end='')
+        print(
+            f'Indexing: {done:.1f} % (ETA: {m:.0f} min {s:.0f} sec)',
+            end='',
+            flush=True
+        )
 
         tick = time.time()
 
