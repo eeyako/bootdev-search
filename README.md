@@ -21,16 +21,20 @@
 
 ### How to use
 ```
-usage: main.py [-h] [--index] [search]
+usage: main.py [-h] [--index] [--indexed-languages] [--languages LANGUAGES [LANGUAGES ...]] [search]
 
 Boot.Dev search
 
 positional arguments:
-  search       a string to search
+  search                a string to search
 
 options:
-  -h, --help   show this help message and exit
-  --index, -i  scrape and index boot.dev lessons, takes a while
+  -h, --help            show this help message and exit
+  --index, -i           scrape and index boot.dev lessons, takes a while
+  --indexed-languages, -il
+                        prints the currently indexed languages and their last index date
+  --languages LANGUAGES [LANGUAGES ...], -l LANGUAGES [LANGUAGES ...]
+                        which programming languages to limit the search or indexing to
 ```
 
 ### Important
