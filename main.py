@@ -75,7 +75,8 @@ def index_search(query, langs):
         langs = [langs]
 
     # Get languages via directory name extraction if not provided
-    langs = utils.get_indexed_languages().keys()
+    if not langs:
+        langs = utils.get_indexed_languages().keys()
 
     if not langs:
         print('Nothing indexed yet, check --indexed-languages')
