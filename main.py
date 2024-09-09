@@ -60,7 +60,7 @@ def scrape_and_index_lessons(lang_lessons, schema):
             tick = time.time()
 
         writer.commit()
-        print(f'Done indexing {lang}!', flush=True)
+        print(f'{text.ERASE}Done indexing {lang}!', flush=True)
 
 
 def index_search(query, langs):
